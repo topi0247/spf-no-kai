@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ReactNode } from "react";
 import { Footers, Headers } from "@/components/layouts";
+import { Provider } from "@/provider";
 
 export const metadata: Metadata = {
   title: "SPFの怪",
@@ -16,11 +17,13 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
-        <div className="flex min-h-screen w-full flex-col ">
-          <Headers />
-          <main className="grow">{children}</main>
-          <Footers />
-        </div>
+        <Provider>
+          <div className="flex min-h-screen w-full flex-col ">
+            <Headers />
+            <main className="grow">{children}</main>
+            <Footers />
+          </div>
+        </Provider>
       </body>
     </html>
   );
