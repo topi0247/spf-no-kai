@@ -7,7 +7,7 @@ class Api::V1::SessionsController < Api::V1::BasesController
     redirect_to "#{ENV.fetch('FRONT_URL', nil)}?token=#{token}", allow_other_host: true
   end
 
-  def current_user
-    render data: @current_user, serializer: UserSerializer
+  def me
+    render json: @current_user , serializer: UserSerializer,  status: :ok
   end
 end
