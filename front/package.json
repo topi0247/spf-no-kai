@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint --dir src",
     "lint:fix": "yarn lint --fix",
-    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,json}'"
+    "format": "prettier --write --ignore-path .gitignore './**/*.{ts,tsx,json}'"
   },
   "dependencies": {
     "next": "14.2.9",
@@ -26,6 +26,7 @@
     "eslint-config-next": "14.2.9",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "eslint-plugin-unused-imports": "^4.1.3",

@@ -1,3 +1,4 @@
+import icons from "rocketicons/tailwind";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -15,6 +16,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [icons],
 };
 export default config;
