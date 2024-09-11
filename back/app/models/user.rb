@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :provider, presence: true
   validates :uid, uniqueness: { scope: :provider }
   validates :provider, uniqueness: { scope: :uid }
-  validates :image_url, format: { with: URI.regexp }, allow_blank: true
+  validates :image_url, format: { with: URI::DEFAULT_PARSER.make_regexp }, allow_blank: true
 
   def self.find_or_create_from_auth(auth)
     provider = auth[:provider]
@@ -24,7 +24,7 @@ class User < ApplicationRecord
     name = auth[:info][:name]
     image_url = auth[:info][:image]
 
-    find_or_create_by(provider: provider, uid: uid) do |user|
+    find_or_create_by(provider:, uid:) do |user|
       user.name = name
       user.image_url = image_url
     end
