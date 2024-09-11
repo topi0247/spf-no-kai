@@ -1,16 +1,17 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
+      backgroundColor: {
+        "runteq-primary": "#FC7400",
+        "runteq-secondary": "#3434D3",
+        "runteq-background": "#F4F9FA",
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "runteq-primary": "#FC7400",
+        "runteq-secondary": "#3434D3",
       },
     },
   },
