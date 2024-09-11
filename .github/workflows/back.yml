@@ -1,0 +1,30 @@
+name: Deploy Backend
+on:
+  push:
+    branches: main
+    paths:
+      - "back/**"
+jobs:
+  deploy-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Deploy to Heroku
+        uses: gonuit/heroku-docker-deploy@v1.3.3
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_BACKEND_APP_NAME }}
+          email: ${{ secrets.HEROKU_EMAIL }}
+          dockerfile_directory: "back"
+          dockerfile_name: Dockerfile
+          docker_options: "--no-cache"
+          process_type: web
+      - name: DB migrate on Heroku
+        run: heroku run rails db:migrate -a ${{ secrets.HEROKU_BACKEND_APP_NAME }}
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      - name: DB seed on Heroku
+        run: heroku run rails db:seed -a ${{ secrets.HEROKU_BACKEND_APP_NAME }}
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
