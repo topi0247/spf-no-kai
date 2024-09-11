@@ -20,3 +20,8 @@ export const useClearCurrentUser = () => {
   const setCurrentUser = useSetRecoilState(currentUserAtom);
   return () => setCurrentUser(null);
 };
+
+export const useIsCurrentUser = () => {
+  const currentUser = useRecoilValue(currentUserAtom);
+  return currentUser !== null;
+};

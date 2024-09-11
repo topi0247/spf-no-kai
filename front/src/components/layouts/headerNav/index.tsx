@@ -1,11 +1,12 @@
 "use client";
 
 import { TiArrowSortedDown } from "rocketicons/ti";
+import { useIsCurrentUser } from "@/recoil";
 
 export default function HeaderNav() {
-  const auth = false;
+  const isLogged = useIsCurrentUser();
 
-  if (!auth) return;
+  if (!isLogged) return;
 
   return (
     <nav>
