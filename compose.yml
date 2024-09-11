@@ -41,7 +41,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./front:/app
-    command: yarn install && yarn dev -p 8000
+    command: bash -c "yarn install && yarn dev -p 8000"
     tty: true
     stdin_open: true
     ports:
