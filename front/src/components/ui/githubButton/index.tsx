@@ -1,36 +1,52 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { BsGithub } from "rocketicons/bs";
 import { Config, Routes } from "@/config";
-import { useAuth } from "@/hook";
-import { useCurrentUserValue } from "@/recoil";
+import { useSetCurrentUser } from "@/recoil";
+import { User } from "@/type";
+import { getToken, setToken } from "@/util";
 
 export default function GithubButton() {
   const params = useSearchParams();
-  const { setToken, getToken, isLoggedIn } = useAuth();
-  const currentUser = useCurrentUserValue();
+  const setCurrentUser = useSetCurrentUser();
   const router = useRouter();
 
-  const handleClick = () => {
-    window.location.href = Config.API_BASE_URL + "/auth/github";
-  };
+  const fetchData = useCallback(async () => {
+    if (!getToken()) return;
+
+    const res = await fetch(`${Config.API_V1_URL}/current_user`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${getToken()}`,
+      },
+    });
+
+    if (!res.ok) {
+      setToken("");
+      return;
+    }
+
+    const data = await res.json();
+    setCurrentUser(data as User);
+  }, []);
 
   useEffect(() => {
     if (params.has("token")) {
       const token = params.get("token") || "";
       setToken(token);
-      if (isLoggedIn()) {
-        router.push(Routes.Top);
-      }
     }
-    if (!currentUser && getToken()) {
-      if (isLoggedIn()) {
-        router.push(Routes.Top);
-      }
+    if (getToken()) {
+      fetchData();
+      router.push(Routes.Top);
     }
-  }, [params, router, setToken, isLoggedIn, currentUser, getToken]);
+  }, [params, fetchData, router]);
+
+  const handleClick = () => {
+    window.location.href = Config.API_BASE_URL + "/auth/github";
+  };
 
   return (
     <button
