@@ -1,15 +1,9 @@
-import React from "react";
+import { ReactNode } from "react";
 
 export default function AuthLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
-  return (
-    <div className="flex min-h-screen w-full flex-col ">
-      <header></header>
-      <main className="grow">{children}</main>
-      <footer></footer>
-    </div>
-  );
+  return <div>{children}</div>;
 }
