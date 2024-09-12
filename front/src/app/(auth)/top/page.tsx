@@ -31,7 +31,7 @@ export default function Top() {
       </article>
 
       <div className="md:flex md:gap-4">
-        <div className="md:order-1 md:w-1/4">
+        <div className="mb-4 md:order-1 md:w-1/4">
           <Aside />
         </div>
         <div className="md:w-3/4">

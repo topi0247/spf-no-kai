@@ -21,7 +21,7 @@ export default function Aside({ myPage = false }: { myPage?: boolean }) {
 
   return (
     <>
-      <section className="grid grid-cols-1 gap-2 rounded bg-white p-4">
+      <section className="grid w-full grid-cols-1 gap-2 rounded bg-white p-4">
         <div className="grid grid-cols-1 gap-3">
           <div className="flex items-center justify-center gap-4">
             <div className="flex aspect-square size-[70px]">
@@ -107,7 +107,7 @@ export default function Aside({ myPage = false }: { myPage?: boolean }) {
           </Link>
         </div>
       </section>
-      <section className="grid w-full grid-cols-1 gap-2 text-sm font-semibold text-runteq-primary">
+      <section className="grid w-full grid-cols-1 gap-2 text-sm font-semibold text-runteq-primary md:my-4">
         <Link
           href="#"
           className="flex w-full items-center justify-start gap-2 rounded border border-runteq-primary bg-white p-3"
@@ -117,7 +117,7 @@ export default function Aside({ myPage = false }: { myPage?: boolean }) {
         </Link>
         <Link
           href="#"
-          className="flex w-full items-center justify-start gap-2 rounded border border-runteq-primary bg-white p-3"
+          className="flex w-full items-center justify-start gap-2 rounded border border-runteq-primary bg-white p-3 md:hidden"
         >
           <FaBell className="icon-orange-sm" />
           <span>通知一覧</span>
@@ -152,6 +152,60 @@ export default function Aside({ myPage = false }: { myPage?: boolean }) {
           </Link>
         </section>
       )}
+      <section className="mt-4 hidden md:block">
+        <h3>通知</h3>
+        <div className="bg-white p-2">
+          <ul>
+            <li className="flex items-start justify-start gap-1 border-b py-2">
+              <MdFavorite className="icon-orange-sm" />
+              <div className="w-full">
+                <p className="text-sm">通知内容</p>
+                <p className="w-full text-end text-xs text-gray-500">
+                  2024/09/11 21:24
+                </p>
+              </div>
+            </li>
+            <li className="flex items-start justify-start gap-1 border-b py-2">
+              <MdFavorite className="icon-orange-sm" />
+              <div className="w-full">
+                <p className="text-sm">通知内容</p>
+                <p className="w-full text-end text-xs text-gray-500">
+                  2024/09/11 21:24
+                </p>
+              </div>
+            </li>
+            <li className="flex items-start justify-start gap-1 border-b py-2">
+              <MdFavorite className="icon-orange-sm" />
+              <div className="w-full">
+                <p className="text-sm">通知内容</p>
+                <p className="w-full text-end text-xs text-gray-500">
+                  2024/09/11 21:24
+                </p>
+              </div>
+            </li>
+            <li className="flex items-start justify-start gap-1 py-2">
+              <MdFavorite className="icon-orange-sm" />
+              <div className="w-full">
+                <p className="text-sm">通知内容</p>
+                <p className="w-full text-end text-xs text-gray-500">
+                  2024/09/11 21:24
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div className="mt-2 flex w-full items-center justify-end text-sm">
+          <Link
+            href=""
+            className="flex items-center justify-center underline hover:text-runteq-primary"
+          >
+            さらに見る
+            <div className="-rotate-90">
+              <GrDown className="icon-gray-sm" />
+            </div>
+          </Link>
+        </div>
+      </section>
     </>
   );
 }

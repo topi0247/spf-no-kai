@@ -3,7 +3,6 @@
 import { useGet } from "../useGet";
 import { Config } from "@/config";
 import { useSetCurrentUser } from "@/recoil";
-import { User } from "@/type";
 import { getToken } from "@/util";
 
 export const useAuth = () => {
@@ -18,7 +17,7 @@ export const useAuth = () => {
     if (isLoading) return false;
     if (!getToken() || !data) return false;
     if (data && data.data) {
-      setCurrentUser(data.data as User);
+      setCurrentUser(data.data);
       return true;
     }
     return false;
