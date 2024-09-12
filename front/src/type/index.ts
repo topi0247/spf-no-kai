@@ -1,3 +1,5 @@
-import { User } from "./user";
+import { TAppTop } from "./appTop";
+import { TArticleTop } from "./articleTop";
+import { TUser } from "./user";
 
-export type { User };
+export type { TUser, TAppTop, TArticleTop };

@@ -36,5 +36,6 @@ module App
     end
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore, key: '_spf-strange_session'
+    config.action_dispatch.cookies_same_site_protection = :none
   end
 end

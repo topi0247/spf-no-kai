@@ -1,11 +1,12 @@
 "use client";
 
 import { BsBell } from "rocketicons/bs";
+import { useIsCurrentUser } from "@/recoil";
 
 export default function Notice() {
-  const auth = false;
+  const isLogged = useIsCurrentUser();
 
-  if (!auth) return;
+  if (!isLogged) return;
 
   const handleClick = () => {
     // TODO: 通知ギミック

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       root 'bases#index'
-      get 'current_user', to: 'sessions#current_user'
+      get 'current_user', to: 'sessions#me'
     end
   end
 end

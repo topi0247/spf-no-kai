@@ -5,6 +5,15 @@ const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        hiraginoKakuGothic: [
+          "ヒラギノ角ゴ ProN W3",
+          "Hiragino Kaku Gothic ProN",
+        ],
+      },
+      fontWeight: {
+        600: "600",
+      },
       backgroundColor: {
         "runteq-primary": "#FC7400",
         "runteq-secondary": "#3434D3",

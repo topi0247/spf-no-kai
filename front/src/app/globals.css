@@ -3,8 +3,48 @@
 @tailwind utilities;
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
-    Hiragino Sans, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial,
-    "メイリオ", Meiryo, sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Helvetica Neue,
+    Helvetica,
+    Hiragino Sans,
+    "ヒラギノ角ゴ ProN W3",
+    Hiragino Kaku Gothic ProN,
+    Arial,
+    "メイリオ",
+    Meiryo,
+    sans-serif;
   background: #f4f9fa;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.has_select {
+  position: relative;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  margin-right: 4px;
+}
+
+.has_select::after {
+  content: "▼";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fc7400;
+}
+
+.has_select select {
+  padding: 8px 39px 7px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
