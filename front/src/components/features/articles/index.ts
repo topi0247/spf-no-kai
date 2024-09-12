@@ -1,4 +1,4 @@
+import ArticleList from "./articleList";
 import ArticleTop from "./articleTop";
-import ArticleTopList from "./articleTopList";
 
-export { ArticleTop, ArticleTopList };
+export { ArticleTop, ArticleList };
