@@ -7,7 +7,7 @@ export default function ArticleTop({
   articleTopData,
   top3 = false,
   ranking = 0,
-  index = 0,
+  index = -1,
 }: {
   articleTopData: TArticleTop;
   top3?: boolean;
@@ -82,7 +82,7 @@ export default function ArticleTop({
             )}
             <span className="font-semibold">{articleTopData.title}</span>
           </h3>
-          {ranking > 0 && (
+          {index >= 0 && (
             <p className="line-clamp-2 text-xs">{articleTopData.description}</p>
           )}
         </div>
