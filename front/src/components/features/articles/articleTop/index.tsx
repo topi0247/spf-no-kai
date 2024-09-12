@@ -65,7 +65,7 @@ export default function ArticleTop({
     </section>
   ) : (
     <section
-      className={`${(0 < ranking && ranking < 9) || index < 9 ? "border-b" : ""} pb-2`}
+      className={`${(0 < ranking && ranking < 9) || index < 9 ? "border-b" : ""} mb-2 pb-2`}
     >
       {ranking === 0 && (
         <div className="flex w-full items-center justify-end">
