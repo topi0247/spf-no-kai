@@ -17,7 +17,7 @@ export default function AppTop({
       ? "icon-yellow-300"
       : ranking === 2
         ? "icon-gray-300"
-        : "icon-orange-300";
+        : "icon-orange-700";
 
   return top3 ? (
     <section

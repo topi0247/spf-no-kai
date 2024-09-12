@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { GrDown } from "rocketicons/gr";
 import { MdLaptopMac } from "rocketicons/md";
-import { AppTop } from "@/components/features/app";
+import { AppTop } from "@/components/features/apps";
 import { TAppTop } from "@/type";
 
 const data = Array.from({ length: 10 }).map(
@@ -24,8 +24,9 @@ const data = Array.from({ length: 10 }).map(
     }) as TAppTop,
 );
 
-export default function AppList() {
+export default function RankingList() {
   const [open, setOpen] = useState(false);
+  // const { data, isLoading, isError } = useGet(fetchUrl);
 
   const toggleOpen = () => {
     setOpen(!open);

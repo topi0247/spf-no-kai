@@ -6,7 +6,7 @@ import { FaBell } from "rocketicons/fa6";
 import { MdAccountCircle, MdFavorite, MdSearch } from "rocketicons/md";
 import { RiTwitterXLine } from "rocketicons/ri";
 import { WiTime4 } from "rocketicons/wi";
-import { AppTopList } from "@/components/features/app";
+import { TopList } from "@/components/features/top";
 
 export default function Top() {
   return (
@@ -124,30 +124,7 @@ export default function Top() {
         </section>
       </article>
 
-      <article>
-        <div>
-          <ul className="grid grid-cols-3 items-center justify-center gap-2 text-center">
-            <li>
-              <button className="w-full rounded-t border-t-4 border-runteq-primary bg-white py-2">
-                ランキング
-              </button>
-            </li>
-            <li>
-              <button className="w-full rounded-t border-t-4 border-gray-200 bg-gray-200 py-2 text-gray-500">
-                新着
-              </button>
-            </li>
-            <li>
-              <button className="w-full rounded-t border-t-4 border-gray-200 bg-gray-200 py-2 text-gray-500">
-                フォロー中
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div className="bg-white px-[18px] pb-10 pt-[18px]">
-          <AppTopList />
-        </div>
-      </article>
+      <TopList />
     </div>
   );
 }
