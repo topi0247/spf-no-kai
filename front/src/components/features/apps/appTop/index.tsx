@@ -7,10 +7,12 @@ export default function AppTop({
   appTopData,
   top3 = false,
   ranking = 0,
+  index = 0,
 }: {
   appTopData: TAppTop;
   top3?: boolean;
   ranking?: number;
+  index?: number;
 }) {
   const crownColor =
     ranking === 1
@@ -63,7 +65,16 @@ export default function AppTop({
       </div>
     </section>
   ) : (
-    <section className={`${ranking < 9 ? "border-b" : ""} pb-2`}>
+    <section
+      className={`${(0 < ranking && ranking < 9) || index < 9 ? "border-b" : ""} pb-2`}
+    >
+      {ranking === 0 && (
+        <div className="flex w-full items-center justify-end">
+          <span className="w-full text-end text-[10px] text-gray-500">
+            登録日:{appTopData.createdAt}
+          </span>
+        </div>
+      )}
       <div className="flex items-start justify-between gap-4">
         <div className="grid w-2/3 grid-cols-1 gap-2">
           <h3>
