@@ -35,33 +35,33 @@ export default function Aside({ myPage = false }: { myPage?: boolean }) {
             </div>
             <div className="flex flex-col items-start justify-center">
               <p className="text-sm text-gray-400">
-                {currentUser.term || "52期"}
+                {currentUser.profile.term || "52期"}
               </p>
               <p className="font-semibold">{currentUser.name}</p>
             </div>
           </div>
           <div className="flex items-center justify-center gap-4 text-gray-500 md:hidden">
-            {currentUser.times && (
+            {currentUser.profile.times && (
               <Link
-                href={currentUser.times}
+                href={currentUser.profile.times}
                 className="relative flex h-14 w-[50px] items-center justify-center"
               >
                 <WiTime4 className="icon-gray-3xl mb-3" />
                 <span className="absolute bottom-0 text-sm">times</span>
               </Link>
             )}
-            {currentUser.github && (
+            {currentUser.profile.github && (
               <Link
-                href={currentUser.github}
+                href={currentUser.profile.github}
                 className="relative flex h-14 w-[50px] items-center justify-center"
               >
                 <BsGithub className="icon-gray-xl mb-4" />
                 <span className="absolute bottom-0 text-sm">GitHub</span>
               </Link>
             )}
-            {currentUser.twitter && (
+            {currentUser.profile.twitter && (
               <Link
-                href={currentUser.twitter || ""}
+                href={currentUser.profile.twitter || ""}
                 className="relative flex h-14 w-[50px] items-center justify-center"
               >
                 <RiTwitterXLine className="icon-gray-xl mb-3" />
@@ -77,7 +77,7 @@ export default function Aside({ myPage = false }: { myPage?: boolean }) {
               type="button"
               className="font-hiraginoKakuGothic text-sm font-600 text-black underline"
             >
-              {currentUser.following || 0}
+              {currentUser.profile.following || 0}
             </button>
           </div>
           <div className="flex items-center justify-center gap-1 px-4">
@@ -86,7 +86,7 @@ export default function Aside({ myPage = false }: { myPage?: boolean }) {
               type="button"
               className="font-hiraginoKakuGothic text-sm font-600 text-black underline"
             >
-              {currentUser.followers || 0}
+              {currentUser.profile.followers || 0}
             </button>
           </div>
         </div>
@@ -136,9 +136,11 @@ export default function Aside({ myPage = false }: { myPage?: boolean }) {
             </div>
           </button>
           <div className={`${open ? "block" : "hidden"} my-2`}>
-            <h2 className="font-bold">{currentUser.motto}ああああああ</h2>
+            <h2 className="font-bold">
+              {currentUser.profile.motto}ああああああ
+            </h2>
             <p className="text-sm">
-              {currentUser.profile}ああああああああああああああ
+              {currentUser.profile.profile}ああああああああああああああ
             </p>
           </div>
           <Link
