@@ -1,18 +1,5 @@
 import { atom, useRecoilValue, useSetRecoilState } from "recoil";
-
-type TCurrentUser = {
-  id: number;
-  name: string;
-  image_url: string;
-  term: string;
-  following: number;
-  followers: number;
-  times: string;
-  github: string;
-  twitter: string;
-  profile: string;
-  motto: string;
-};
+import { TCurrentUser } from "@/type";
 
 const currentUserAtom = atom<TCurrentUser | null>({
   key: "currentUser",

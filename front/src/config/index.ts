@@ -17,4 +17,6 @@ export const Routes = {
   RunteqEvents: "/myportfoilo/runteq_events",
   RunteqEvent: (id: string) => `/myportfoilo/runteq_events/${id}`,
   NotFound: "/404",
+  AdminLogin: "/admin",
+  AdminTop: "/admin/top",
 };

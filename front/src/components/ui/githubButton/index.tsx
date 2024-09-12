@@ -5,7 +5,6 @@ import { useCallback, useEffect } from "react";
 import { BsGithub } from "rocketicons/bs";
 import { Config, Routes } from "@/config";
 import { useSetCurrentUser } from "@/recoil";
-import { User } from "@/type";
 import { getToken, setToken } from "@/util";
 
 export default function GithubButton() {
@@ -30,8 +29,8 @@ export default function GithubButton() {
     }
 
     const data = await res.json();
-    setCurrentUser(data as User);
-  }, []);
+    setCurrentUser(data);
+  }, [setCurrentUser]);
 
   useEffect(() => {
     if (params.has("token")) {
@@ -40,7 +39,12 @@ export default function GithubButton() {
     }
     if (getToken()) {
       fetchData();
-      router.push(Routes.Top);
+      const currentPath = window.location.pathname;
+      if (currentPath === Routes.Login) {
+        router.push(Routes.Top);
+      } else if (currentPath === Routes.AdminLogin) {
+        router.push(Routes.AdminTop);
+      }
     }
   }, [params, fetchData, router]);
 

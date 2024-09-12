@@ -1,12 +1,39 @@
 "use client";
 
+import { useCallback, useEffect } from "react";
 import { TiArrowSortedDown } from "rocketicons/ti";
-import { useIsCurrentUser } from "@/recoil";
+import { Config } from "@/config";
+import { useIsCurrentUser, useSetCurrentUser } from "@/recoil";
+import { getToken, setToken } from "@/util";
 
 export default function HeaderNav() {
   const isLogged = useIsCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
-  if (!isLogged) return;
+  const fetchData = useCallback(async () => {
+    if (!getToken()) return;
+
+    const res = await fetch(`${Config.API_V1_URL}/current_user`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${getToken()}`,
+      },
+    });
+
+    if (!res.ok) {
+      setToken("");
+      return;
+    }
+
+    const data = await res.json();
+    setCurrentUser(data);
+  }, [setCurrentUser]);
+
+  useEffect(() => {
+    if (isLogged) return;
+    fetchData();
+  }, [isLogged, fetchData]);
 
   return (
     <nav>

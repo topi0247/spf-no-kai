@@ -14,7 +14,7 @@ export default function TopTabs({
   activeTab: string;
 }) {
   return (
-    <ul className="grid grid-cols-3 items-center justify-center gap-2 text-center">
+    <ul className="grid grid-cols-3 items-center justify-center gap-2 text-center md:grid-cols-4">
       <li>
         <button
           type="button"

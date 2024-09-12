@@ -1,6 +1,6 @@
 import { TProfile } from "@/type";
 
-export type TUser = {
+export type TCurrentUser = {
   id: number;
   name: string;
   image_url: string;
