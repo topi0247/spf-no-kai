@@ -7,4 +7,5 @@ export type TAppTop = {
   likes: number;
   image: string;
   user: TUser;
+  createdAt: string;
 };
