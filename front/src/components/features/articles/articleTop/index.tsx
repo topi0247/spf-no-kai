@@ -47,7 +47,7 @@ export default function ArticleTop({
       </div>
       <div className="flex justify-between">
         <button className="flex items-center justify-start gap-1 text-sm text-gray-500">
-          <span>{articleTopData.user.term}</span>
+          <span>{articleTopData.user.profile.term}</span>
           <div className="aspect-square h-[20px]">
             <Image
               src={articleTopData.user.image_url}
@@ -102,7 +102,7 @@ export default function ArticleTop({
         className={`mt-4 flex items-center justify-between ${ranking > 0 ? "md:ml-4" : ""}`}
       >
         <button className="flex items-center justify-start gap-1 text-sm text-gray-500">
-          <span>{articleTopData.user.term}</span>
+          <span>{articleTopData.user.profile.term}</span>
           <div className="aspect-square h-[20px]">
             <Image
               src={articleTopData.user.image_url}

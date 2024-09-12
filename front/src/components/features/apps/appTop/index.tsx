@@ -48,7 +48,7 @@ export default function AppTop({
       </div>
       <div className="flex justify-between">
         <button className="flex items-center justify-start gap-1 text-sm text-gray-500">
-          <span>{appTopData.user.term}</span>
+          <span>{appTopData.user.profile.term}</span>
           <div className="aspect-square h-[20px]">
             <Image
               src={appTopData.user.image_url}
@@ -103,7 +103,7 @@ export default function AppTop({
         className={`mt-4 flex items-center justify-between ${ranking > 0 ? "md:ml-4" : ""}`}
       >
         <button className="flex items-center justify-start gap-1 text-sm text-gray-500">
-          <span>{appTopData.user.term}</span>
+          <span>{appTopData.user.profile.term}</span>
           <div className="aspect-square h-[20px]">
             <Image
               src={appTopData.user.image_url}

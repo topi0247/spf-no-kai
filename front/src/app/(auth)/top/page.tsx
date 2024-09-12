@@ -4,7 +4,7 @@ import { Aside } from "@/components/layouts";
 
 export default function Top() {
   return (
-    <div className="grid grid-cols-1 gap-6 md:mx-24 md:my-4">
+    <div className="grid grid-cols-1 gap-6">
       <article className="flex flex-col gap-2">
         <section className="flex w-full flex-col items-center justify-center gap-2 md:flex-row md:justify-between">
           <div className="w-full text-start font-bold">

@@ -20,7 +20,9 @@ const data = Array.from({ length: 10 }).map(
         id: 1,
         name: "とぴ",
         image_url: "https://avatars.githubusercontent.com/u/23026318?s=96&v=4",
-        term: "52期",
+        profile: {
+          term: "52期",
+        },
       },
     }) as TArticleTop,
 );
@@ -64,7 +66,7 @@ export default function RankingArticles() {
       </div>
       <div className={`${open ? "block" : "hidden"} md:my-6 md:block`}>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {data.slice(3, 9).map((article, index) => (
+          {data.slice(3, 10).map((article, index) => (
             <ArticleTop
               key={index}
               articleTopData={article}

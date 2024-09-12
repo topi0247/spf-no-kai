@@ -39,7 +39,12 @@ export default function GithubButton() {
     }
     if (getToken()) {
       fetchData();
-      router.push(Routes.Top);
+      const currentPath = window.location.pathname;
+      if (currentPath === Routes.Login) {
+        router.push(Routes.Top);
+      } else if (currentPath === Routes.AdminLogin) {
+        router.push(Routes.AdminTop);
+      }
     }
   }, [params, fetchData, router]);
 

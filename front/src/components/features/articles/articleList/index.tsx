@@ -17,6 +17,9 @@ const data = Array.from({ length: 10 }).map(
         id: 1,
         name: "とぴ",
         image_url: "https://avatars.githubusercontent.com/u/23026318?s=96&v=4",
+        profile: {
+          term: "52期",
+        },
       },
       createdAt: "2021/10/01",
     }) as TArticleTop,
