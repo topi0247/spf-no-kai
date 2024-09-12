@@ -79,7 +79,7 @@ export default function AppTop({
       )}
       <div className="flex items-start justify-between gap-4">
         <div className="grid w-2/3 grid-cols-1 gap-2 ">
-          <h3>
+          <h3 className="line-clamp-1">
             {ranking > 0 && (
               <span className="mr-2 font-hiraginoKakuGothic">{ranking}</span>
             )}

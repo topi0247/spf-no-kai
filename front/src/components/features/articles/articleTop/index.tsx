@@ -16,14 +16,14 @@ export default function ArticleTop({
 }) {
   const crownColor =
     ranking === 1
-      ? "icon-yellow-300"
+      ? "icon-yellow-500 md:icon-yellow-500-lg"
       : ranking === 2
-        ? "icon-gray-300"
-        : "icon-orange-700";
+        ? "icon-gray-300 md:icon-gray-300-lg"
+        : "icon-orange-700 md:icon-orange-700-lg";
 
   return top3 ? (
     <section
-      className={`mt-4 grid grid-cols-1 gap-2 ${ranking < 3 ? "border-b" : ""} pb-2`}
+      className={`mt-4 grid grid-cols-1 gap-2 ${ranking < 3 ? "border-b" : ""} pb-2 md:border-none`}
     >
       {ranking > 0 && (
         <div className="flex items-center justify-start gap-1 font-hiraginoKakuGothic text-base font-semibold">
@@ -41,7 +41,9 @@ export default function ArticleTop({
         />
       </div>
       <div>
-        <h3 className="text-base font-bold">{articleTopData.title}</h3>
+        <h3 className="line-clamp-2 text-base font-bold">
+          {articleTopData.title}
+        </h3>
       </div>
       <div className="flex justify-between">
         <button className="flex items-center justify-start gap-1 text-sm text-gray-500">
@@ -65,7 +67,7 @@ export default function ArticleTop({
     </section>
   ) : (
     <section
-      className={`${(0 < ranking && ranking < 9) || index < 9 ? "border-b" : ""} mb-2 pb-2`}
+      className={`${(0 < ranking && ranking < 9) || index < 9 ? "border-b" : ""} mb-2 pb-2 md:border-none`}
     >
       {ranking === 0 && (
         <div className="flex w-full items-center justify-end">
@@ -76,7 +78,7 @@ export default function ArticleTop({
       )}
       <div className="flex items-start justify-between gap-4">
         <div className="grid w-2/3 grid-cols-1 gap-2">
-          <h3>
+          <h3 className="line-clamp-1">
             {ranking > 0 && (
               <span className="mr-2 font-hiraginoKakuGothic">{ranking}</span>
             )}
@@ -96,7 +98,7 @@ export default function ArticleTop({
           />
         </div>
       </div>
-      <div className="mt-4 flex items-center justify-between">
+      <div className="mt-4 flex items-center justify-between md:ml-4">
         <button className="flex items-center justify-start gap-1 text-sm text-gray-500">
           <span>{articleTopData.user.term}</span>
           <div className="aspect-square h-[20px]">
