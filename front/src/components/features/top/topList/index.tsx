@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AppList } from "@/components/features/apps";
+import { ArticleList } from "@/components/features/articles";
 import { RankingList, TopTabs } from "@/components/features/top";
 
 const Tabs = {
@@ -43,7 +44,7 @@ function Toggle({
 }
 
 export default function TopList() {
-  const [activeTab, setActiveTab] = useState(Tabs.new);
+  const [activeTab, setActiveTab] = useState(Tabs.ranking);
   const [activeToggle, setActiveToggle] = useState(Toggles.app);
   const [fetchUrl, setFetchUrl] = useState("");
 
@@ -91,6 +92,7 @@ export default function TopList() {
           <>
             <Toggle activeToggle={activeToggle} onClick={handleToggle} />
             {activeToggle === Toggles.app && <AppList url={fetchUrl} />}
+            {activeToggle === Toggles.article && <ArticleList url={fetchUrl} />}
           </>
         )}
       </div>
