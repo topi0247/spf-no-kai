@@ -37,13 +37,15 @@ export default function RankingApps() {
     <div className="grid grid-cols-1">
       <h2 className="mb-2 flex items-center justify-start gap-1 font-semibold text-black">
         <MdLaptopMac className="icon-black" />
-        <span>注目のアプリ</span>
+        <span className="md:text-xl">注目のアプリ</span>
       </h2>
       <hr />
-      {data.slice(0, 3).map((app, index) => (
-        <AppTop key={index} appTopData={app} ranking={index + 1} top3 />
-      ))}
-      <div className="flex items-center justify-center text-gray-400">
+      <div className="md:grid md:grid-cols-3 md:gap-3">
+        {data.slice(0, 3).map((app, index) => (
+          <AppTop key={index} appTopData={app} ranking={index + 1} top3 />
+        ))}
+      </div>
+      <div className="flex items-center justify-center text-gray-400 md:hidden">
         <button
           type="button"
           onClick={() => toggleOpen()}
@@ -55,24 +57,22 @@ export default function RankingApps() {
           </div>
         </button>
       </div>
-      {open && (
-        <>
-          <div className="grid grid-cols-1 gap-4">
-            {data.slice(3, 9).map((app, index) => (
-              <AppTop key={index} appTopData={app} ranking={index + 4} />
-            ))}
-          </div>
-          <div className="flex items-center justify-center text-gray-400">
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              className="flex items-center justify-center gap-6 px-4 py-6"
-            >
-              閉じる
-            </button>
-          </div>
-        </>
-      )}
+      <div className={`${open ? "block" : "hidden"} md:my-6 md:block`}>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {data.slice(3, 9).map((app, index) => (
+            <AppTop key={index} appTopData={app} ranking={index + 4} />
+          ))}
+        </div>
+        <div className="flex items-center justify-center text-gray-400 md:hidden">
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            className="flex items-center justify-center gap-6 px-4 py-6"
+          >
+            閉じる
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
