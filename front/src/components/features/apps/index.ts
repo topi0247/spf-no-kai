@@ -1,3 +1,4 @@
+import AppList from "./appList";
 import AppTop from "./appTop";
 
-export { AppTop };
+export { AppTop, AppList };
