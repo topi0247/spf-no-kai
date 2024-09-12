@@ -23,7 +23,7 @@ export default function Aside({ myPage = false }: { myPage?: boolean }) {
     <>
       <section className="grid w-full grid-cols-1 gap-2 rounded bg-white p-4">
         <div className="grid grid-cols-1 gap-3">
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-4 md:flex-col">
             <div className="flex aspect-square size-[70px]">
               <Image
                 src={currentUser.image_url}
@@ -40,7 +40,7 @@ export default function Aside({ myPage = false }: { myPage?: boolean }) {
               <p className="font-semibold">{currentUser.name}</p>
             </div>
           </div>
-          <div className="flex items-center justify-center gap-4 text-gray-500">
+          <div className="flex items-center justify-center gap-4 text-gray-500 md:hidden">
             {currentUser.times && (
               <Link
                 href={currentUser.times}
@@ -70,7 +70,7 @@ export default function Aside({ myPage = false }: { myPage?: boolean }) {
             )}
           </div>
         </div>
-        <div className="flex items-center justify-center rounded bg-slate-100 px-4 py-6 text-xs text-gray-500">
+        <div className="flex items-center justify-center rounded bg-slate-100 px-4 py-6 text-xs text-gray-500 md:hidden">
           <div className="flex items-center justify-center gap-1 border-r border-gray-400 px-4">
             <span>フォロー</span>
             <button
