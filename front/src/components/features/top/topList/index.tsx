@@ -24,21 +24,26 @@ function Toggle({
   onClick: (toggle: string) => void;
 }) {
   return (
-    <div className="mb-6 grid w-full grid-cols-2 items-center justify-center text-center">
-      <button
-        type="button"
-        onClick={() => onClick(Toggles.app)}
-        className={`${activeToggle === Toggles.app ? "bg-black text-white" : "bg-white text-black"} rounded-l border border-black py-1 font-semibold`}
-      >
-        アプリ
-      </button>
-      <button
-        type="button"
-        onClick={() => onClick(Toggles.article)}
-        className={`${activeToggle === Toggles.article ? "bg-black text-white" : "bg-white text-black"} rounded-r border border-black py-1 font-semibold`}
-      >
-        記事
-      </button>
+    <div className="md:mb-4 md:flex md:items-start md:justify-between">
+      <div className="mb-6 grid w-full grid-cols-2 items-center justify-center text-center md:w-auto">
+        <button
+          type="button"
+          onClick={() => onClick(Toggles.app)}
+          className={`${activeToggle === Toggles.app ? "bg-black text-white" : "bg-white text-black"} rounded-l border border-black px-8 py-1.5 font-semibold`}
+        >
+          アプリ
+        </button>
+        <button
+          type="button"
+          onClick={() => onClick(Toggles.article)}
+          className={`${activeToggle === Toggles.article ? "bg-black text-white" : "bg-white text-black"} rounded-r border border-black px-8 py-1.5 font-semibold`}
+        >
+          記事
+        </button>
+      </div>
+      <p className="hidden text-base text-gray-400 md:block">
+        ※新着…ソーシャルポートフォリオに追加された順
+      </p>
     </div>
   );
 }

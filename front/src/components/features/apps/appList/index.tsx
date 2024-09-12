@@ -29,7 +29,13 @@ export default function AppList({ url }: { url: string }) {
   // if (isLoading) return <div>Loading...</div>;
   // if (isError) return <div>Error</div>;
 
-  return data.map((app, index) => (
-    <AppTop key={index} appTopData={app} index={index} />
-  ));
+  return (
+    <div className="md:grid md:grid-cols-2 md:gap-4">
+      {data.map((app, index) => (
+        <div key={index} className="md:border-b">
+          <AppTop appTopData={app} index={index} />
+        </div>
+      ))}
+    </div>
+  );
 }

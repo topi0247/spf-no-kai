@@ -7,7 +7,7 @@ export default function AppTop({
   appTopData,
   top3 = false,
   ranking = 0,
-  index = 0,
+  index = -1,
 }: {
   appTopData: TAppTop;
   top3?: boolean;
@@ -85,7 +85,7 @@ export default function AppTop({
             )}
             <span className="font-semibold">{appTopData.title}</span>
           </h3>
-          <p className="line-clamp-2 text-xs md:ml-4">
+          <p className={`line-clamp-2 text-xs ${ranking > 0 ? "md:ml-4" : ""}`}>
             {appTopData.description}
           </p>
         </div>
@@ -99,7 +99,9 @@ export default function AppTop({
           />
         </div>
       </div>
-      <div className="mt-4 flex items-center justify-between md:ml-4">
+      <div
+        className={`mt-4 flex items-center justify-between ${ranking > 0 ? "md:ml-4" : ""}`}
+      >
         <button className="flex items-center justify-start gap-1 text-sm text-gray-500">
           <span>{appTopData.user.term}</span>
           <div className="aspect-square h-[20px]">

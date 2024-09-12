@@ -98,7 +98,9 @@ export default function ArticleTop({
           />
         </div>
       </div>
-      <div className="mt-4 flex items-center justify-between md:ml-4">
+      <div
+        className={`mt-4 flex items-center justify-between ${ranking > 0 ? "md:ml-4" : ""}`}
+      >
         <button className="flex items-center justify-start gap-1 text-sm text-gray-500">
           <span>{articleTopData.user.term}</span>
           <div className="aspect-square h-[20px]">

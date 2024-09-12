@@ -25,7 +25,13 @@ const data = Array.from({ length: 10 }).map(
 export default function ArticleList({ url }: { url: string }) {
   console.log(url);
 
-  return data.map((app, index) => (
-    <ArticleTop key={index} articleTopData={app} index={index} />
-  ));
+  return (
+    <div className="md:grid md:grid-cols-2 md:gap-4">
+      {data.map((app, index) => (
+        <div key={index} className="md:border-b">
+          <ArticleTop articleTopData={app} index={index} />
+        </div>
+      ))}
+    </div>
+  );
 }
